@@ -15,9 +15,7 @@ Yuan Wang & Jiajie Shi. 2021-6-7.
 """
 
 CELEBA_DIR = './celebA/'
-CHECKPOINT = './checkpoint/celebA_cp15.cp'
 TO_TENSOR = transforms.ToTensor()
-DEVICE = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
 class CelebADataset(torch.utils.data.Dataset):

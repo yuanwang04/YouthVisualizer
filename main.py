@@ -10,6 +10,12 @@ for the CelebA data using the darkNet.
 Yuan Wang & Jiajie Shi. 2021-6-7
 """
 
+IMAGE_PATH = './data/shijiajie1.jpg'
+DEVICE = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+CHECKPOINT = './checkpoint/celebA_cp15.cp'
+
+print('DEVICE: ' + DEVICE)
+
 
 def main(celebA_idx=231, input_type=''):
     ########## data ##########
@@ -26,7 +32,7 @@ def main(celebA_idx=231, input_type=''):
         itr = iter(celeb_data['test'])
         inputs, label = itr.__next__()
     elif input_type == 'image':
-        inputs = get_inputs_from_file('./data/shijiajie1.jpg')
+        inputs = get_inputs_from_file(IMAGE_PATH)
     elif input_type == 'color':
         inputs = get_color_input(channel=(0, 1, 2), size=(400, 400))
 
@@ -48,14 +54,14 @@ def main(celebA_idx=231, input_type=''):
 
     ########## layered activation ##########
     print('showing activated area at each layer')
-    # outputs = get_layered_result(inputs, net)
-    # imshow_grid(outputs[0][0])    # output at layer 1
-    # imshow_grid(outputs[1][0])    # output at layer 2
-    # imshow_grid(outputs[2][0])    # output at layer 3
+    outputs = get_layered_result(inputs, net)
+    imshow_grid(outputs[0][0])    # output at layer 1
+    imshow_grid(outputs[1][0])    # output at layer 2
+    imshow_grid(outputs[2][0])    # output at layer 3
 
     ########## rgb combined channels at each layer ##########
     print('showing rgb combined activation area at each layer')
-    # rgb_some_channel(inputs, net, layer_rgbs={1: (4, 9, 15), 2: (9, 3, 30), 3: (45, 51, 18)})
+    rgb_some_channel(inputs, net, layer_rgbs={1: (4, 9, 15), 2: (9, 3, 30), 3: (45, 51, 18)})
 
     ########## modify the input to activate some layer ##########
     print('showing images to activate some channel the most')
