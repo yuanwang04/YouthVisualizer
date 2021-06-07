@@ -198,9 +198,9 @@ def get_layer_funcs(net, channel=None):
     def fifth_layer_func(net, channel=0):
         def temp_func(inputs):
             o1 = net.conv1(inputs)
-            o2 = net.conv2(F.avg_pool2d(F.relu(net.bn1(o1)), kernel_size=2, stride=2))
-            o3 = net.conv3(F.avg_pool2d(F.relu(net.bn2(o2)), kernel_size=2, stride=2))
-            o4 = net.conv4(F.avg_pool2d(F.relu(net.bn3(o3)), kernel_size=2, stride=2))
+            o2 = net.conv2(F.max_pool2d(F.relu(net.bn1(o1)), kernel_size=2, stride=2))
+            o3 = net.conv3(F.max_pool2d(F.relu(net.bn2(o2)), kernel_size=2, stride=2))
+            o4 = net.conv4(F.max_pool2d(F.relu(net.bn3(o3)), kernel_size=2, stride=2))
             o5 = net.conv5(F.max_pool2d(F.relu(net.bn4(o4)), kernel_size=2, stride=2))
             return o5[:, channel]
 
