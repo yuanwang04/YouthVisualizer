@@ -130,15 +130,15 @@ We do so by using an algorithm similar to deep dream, except we are starting fro
 
 0. We take the sum of the output from the channel. The gradient at each element would be 1. We try to increment the output as a whole.
    
-   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}{y_i}\\\\frac{\partial%20s}{\partial%20y_i}=1)
+   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}{y_i}\\\\\frac{\partial%20s}{\partial%20y_i}=1)
    
 1. We take the sum of the squared output. Instead of making the whole output higher, we want to make the contrast of the output stronger. That is, make large numbers larger and smaller numbers smaller. By taking the sum of the square, the gradient at the output tensor would be 2 times the value itself.  
 
-   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}{y_i}^2\\\frac{\partial%20s}{\partial%20y_i}=2y_i)
+   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}{y_i}^2\\\\\frac{\partial%20s}{\partial%20y_i}=2y_i)
 
 2. We take the sum of the absolute value of the output. Since many output elements might have value within range 0~1, the approach above could cause diminishing outputs. Hence, we can just make positive values more positive and negative values more negative. The gradient would be 1 for positive outputs, and -1 for negative outputs. 
    
-   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}|y_i|\\\frac{\partial%20s}{\partial%20y_i}=\text{sign}(y_i))
+   ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}|y_i|\\\\\frac{\partial%20s}{\partial%20y_i}=\text{sign}(y_i))
 
 The following experiments are based on this picture of our group member. Layer begin with index 1, channel begin with index 0. 
 
