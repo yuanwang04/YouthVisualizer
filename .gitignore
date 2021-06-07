@@ -1,0 +1,4 @@
+/celebA/img_align_celeba/*
+/celebA/list_attr_celeba.csv
+/cifar/test/*
+/cifar/train/*
