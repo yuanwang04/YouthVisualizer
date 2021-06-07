@@ -2,7 +2,7 @@
 
 Yuan Wang & Jiajie Shi, 2021-6
 
-![fig_0](.\imgs\fig_0.png)
+![fig_0](imgs/fig_0.png)
 
 ## Abstract
 

@@ -26,7 +26,7 @@ def main(celebA_idx=231, input_type=''):
         itr = iter(celeb_data['test'])
         inputs, label = itr.__next__()
     elif input_type == 'image':
-        inputs = get_inputs_from_file('./data/shijiajie.jpg')
+        inputs = get_inputs_from_file('./data/shijiajie1.jpg')
     elif input_type == 'color':
         inputs = get_color_input(channel=(0, 1, 2), size=(400, 400))
 
@@ -60,7 +60,7 @@ def main(celebA_idx=231, input_type=''):
     ########## modify the input to activate some layer ##########
     print('showing images to activate some channel the most')
     func = get_layer_funcs(net, channel={2: 24})[2]
-    result = get_activation_inputs(inputs, func, rate=.005, epoch=100, collect_every=20)
+    result = get_activation_inputs(inputs, func, rate=.003, epoch=100, collect_every=20)
     imshow_grid(result)
     print('done')
 
@@ -71,4 +71,4 @@ def main(celebA_idx=231, input_type=''):
 
 
 if __name__ == '__main__':
-    main()
+    main(input_type='image')

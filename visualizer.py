@@ -21,6 +21,7 @@ Yuan Wang & Jiajie Shi. 2021-6-7.
 """
 
 to_img = transforms.ToPILImage()
+to_tensor = transforms.ToTensor()
 
 
 class Darknet64(nn.Module):
@@ -285,7 +286,7 @@ def get_rand_input(size=(400, 400)):
 
 def get_inputs_from_file(file_path):
     image = Image.open(file_path)
-    return torch.stack([TO_TENSOR(image)])
+    return torch.stack([to_tensor(image)])
 
 
 """
