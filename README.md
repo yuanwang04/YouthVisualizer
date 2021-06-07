@@ -126,10 +126,10 @@ The last rgb image is using 3 channels (51, 54, 64) from the output of the third
 
 From the previous part, it naturally leads to the question that whether we can tell if some filter is specifically interested in some known features? For example, baldness, lips, eyes, hairs etc. In order to verify our assumptions, we decided manually activate some layers by adjusting our input, see how the layer can be activated the most, and to search for some patterns from the changes to our input. 
 
-We do so by using an algorithm similar to deep dream, except we are starting from a specified channel at a layer. We calculate a gradient that makes the layer more "activated", back-propagate the gradient all the way to the input, change the input according to the gradient. To define "activate", we think of 3 approaches. With $y=f(x)$, our approaches result in the gradient as below:
+We do so by using an algorithm similar to deep dream, except we are starting from a specified channel at a layer. We calculate a gradient that makes the layer more "activated", back-propagate the gradient all the way to the input, change the input according to the gradient. To define "activate", we think of 3 approaches. With y=f(x), our approaches result in the gradient as below:
 
 0. We take the sum of the output from the channel. The gradient at each element would be 1. We try to increment the output as a whole.
-   <img src="http://latex.codecogs.com/gif.latex?s=\sum_{i}{y_i}\\\frac{\partial s}{\partial y_i}=1">
+   ![](http://latex.codecogs.com/gif.latex?s=\\\sum_{i}{y_i}\\\\\\\\\frac{\\\partial s}{\\\partial y_i}=1>
 
 1. We take the sum of the squared output. Instead of making the whole output higher, we want to make the contrast of the output stronger. That is, make large numbers larger and smaller numbers smaller. By taking the sum of the square, the gradient at the output tensor would be 2 times the value itself.  
 
