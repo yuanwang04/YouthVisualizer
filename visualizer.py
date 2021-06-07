@@ -160,7 +160,7 @@ def imshow_grid(inputs, width=8):
     else:
         raise TypeError(f'inputs has unknown shape: %d' % inputs.dim())
 
-    plt.subplots_adjust(wspace=0, hspace=0)
+    plt.subplots_adjust(wspace=0.1, hspace=0.1)
     plt.show()
 
 
@@ -196,7 +196,7 @@ def deep_dream(inputs, labels, net, criterion=None, iter=10, rate=0.1, collect_e
     return torch.stack(res)
 
 
-def get_activation_inputs(inputs, to_output, epoch=10, rate=0.1, collect_every=1):
+def get_activation_inputs(inputs, to_output, epoch=10, rate=0.1, collect_every=1, schema=0):
     """
     Use back-propagation to activate a certain layer/channel of the network.
     :param inputs:         the input to the network
@@ -204,6 +204,10 @@ def get_activation_inputs(inputs, to_output, epoch=10, rate=0.1, collect_every=1
     :param epoch:          number of iterations to modify the input
     :param rate:           the rate of modifying the input
     :param collect_every:  collect the result input after every given number of iterations
+    :param schema:         the schema used to calculate the gradient.
+                           default=0, use sum(output), gradient = 1
+                                   1, use sum(output^2), gradient = element itself
+                                   2, use sum(abs(output)), gradient = 1 if element > 0, -1 if element < 0
     :return:               a tensor, each tensor within represents a modified version of the input.
     """
     inputs = inputs.clone()
@@ -211,7 +215,15 @@ def get_activation_inputs(inputs, to_output, epoch=10, rate=0.1, collect_every=1
     for i in range(epoch):
         inputs.requires_grad = True
         output = to_output(inputs)
-        s = output.sum()
+        if schema == 0:
+            s = output.sum()
+        elif schema == 1:
+            sqr_output = output * output
+            s = sqr_output.sum()
+        elif schema == 2:
+            s = output.abs().sum()
+        else:
+            raise ValueError('Unknown schema')
         s.backward()
         new_inputs = inputs + rate * (inputs.grad / inputs.grad.abs().mean())
         inputs = new_inputs.detach()

@@ -146,8 +146,9 @@ def get_layered_result(inputs, net):
     o2 = net.conv2(F.max_pool2d(F.relu(net.bn1(o1)), kernel_size=2, stride=2))
     o3 = net.conv3(F.max_pool2d(F.relu(net.bn2(o2)), kernel_size=2, stride=2))
     o4 = net.conv4(F.max_pool2d(F.relu(net.bn3(o3)), kernel_size=2, stride=2))
+    o5 = net.conv5(F.max_pool2d(F.relu(net.bn4(o4)), kernel_size=2, stride=2))
 
-    return [o1, o2, o3, o4]
+    return [o1, o2, o3, o4, o5]
 
 
 def get_layer_funcs(net, channel=None):
