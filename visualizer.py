@@ -186,7 +186,7 @@ def deep_dream(inputs, labels, net, criterion=None, iter=10, rate=0.1, collect_e
         outputs = net.forward(inputs)
         losses = criterion(outputs, labels)
         losses.backward()
-        new_inputs = inputs - rate * inputs.grad  # modify the input
+        new_inputs = inputs - rate * (inputs.grad / inputs.grad.abs().mean())  # modify the input
         inputs = new_inputs.detach()
         if i % collect_every == collect_every - 1:
             print(f'epoch %d: losses=%.3f' % (i + 1, losses.item()))
@@ -212,7 +212,7 @@ def get_activation_inputs(inputs, to_output, epoch=10, rate=0.1, collect_every=1
         output = to_output(inputs)
         s = output.sum()
         s.backward()
-        new_inputs = inputs + rate * inputs.grad
+        new_inputs = inputs + rate * (inputs.grad / inputs.grad.abs().mean())
         inputs = new_inputs.detach()
         if i % collect_every == collect_every - 1:
             print(f'epoch %d: sum=%.3f' % (i + 1, s.item()))

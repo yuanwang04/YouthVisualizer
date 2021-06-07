@@ -55,18 +55,18 @@ def main(celebA_idx=231, input_type=''):
 
     ########## rgb combined channels at each layer ##########
     print('showing rgb combined activation area at each layer')
-    rgb_some_channel(inputs, net, layer_rgbs={1: (6, 5, 2), 2: (10, 3, 3), 3: (1, 3, 5)})
+    # rgb_some_channel(inputs, net, layer_rgbs={1: (4, 9, 15), 2: (9, 3, 30), 3: (45, 51, 18)})
 
     ########## modify the input to activate some layer ##########
     print('showing images to activate some channel the most')
     func = get_layer_funcs(net, channel={2: 24})[2]
-    result = get_activation_inputs(inputs, func, rate=.01, epoch=100, collect_every=20)
+    result = get_activation_inputs(inputs, func, rate=.005, epoch=100, collect_every=20)
     imshow_grid(result)
     print('done')
 
     ########## deep dream ##########
     print('deep dream')
-    outputs = deep_dream(inputs, torch.tensor([0]).to(device=DEVICE), net, rate=1, iter=100, collect_every=20)
+    outputs = deep_dream(inputs, torch.tensor([0]).to(device=DEVICE), net, rate=.001, iter=100, collect_every=20)
     imshow_grid(outputs)
 
 
