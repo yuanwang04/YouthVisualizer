@@ -45,8 +45,8 @@ The accuracies of the training set and the test sets of the model are:
 
 ```
 {
-	'train': 
-	'test': 
+	'train': 0.882812
+	'test': 0.899858
 }
 ```
 
