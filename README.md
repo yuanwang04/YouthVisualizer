@@ -49,6 +49,8 @@ The accuracies of the training set and the test sets of the model are:
 	'test': 0.899858
 }
 ```
+here is the graph of our training:
+![test_result](./imgs/test_result.png)
 
 ## Visualization
 
