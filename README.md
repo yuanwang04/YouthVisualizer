@@ -217,7 +217,7 @@ Data is clearly a poor reflection of the truth but it reflects one way or anothe
 
 According to the observation of our neural network, we found features like lip color, baldness, make up(eye shadow), smoothness of skin... Some of them are closer to the biological truth like smoothness of skin and some of them are more socially constructed like use of make up. 
 
-We are also surprised at how excited we felt looking at the thousands of photos the neural network and the deep dream made during project. It was from the joy of accomplishment, but also, it's also because some of the pictures we got are extremly artistic.(This is how we decide to make the RGB combiner). Feeding a neural network some data of a topic and then look at how it "look" at things is certainly a practice of high artistic quality. Maybe for understanding different interesting concepts and visualizing them, deep dream can be a good help for artists.
+We are also surprised at how excited we felt looking at the thousands of photos the neural network and the deep dream made during project. It was from the joy of accomplishment, but it's also because some of the pictures we got are extremly artistic.(This is how we decide to make the RGB combiner). Feeding a neural network some data of a topic and then look at how it "look" at things is certainly a practice of high artistic quality. Maybe for understanding different interesting concepts and visualizing them, deep dream can be a good help for artists.
 
 
 Fun fact: we wanted to do this project on "beauty" but our neural network failed learn how to classfy it.
