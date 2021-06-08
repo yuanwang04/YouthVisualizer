@@ -97,7 +97,7 @@ Interestingly, we see a contrast in activation in output 18, 26, and 54 on the u
 
  ![fig_5_forth_layer](./imgs/fig_5_forth_layer.png)
 
-The output of this layer is chopped to the first 64 channels. There are a few output that very interest to point out.
+The output of this layer is chopped to the first 64 channels. There are a few output that very interesting to point out.
 
 Output 2, 9 both have a significant focus on the hair and upper-head. This could be suggesting some baldness recognition or hair recognition. This feature is, by our common assumption, associated with the youngness of a face. 
 
@@ -109,13 +109,13 @@ By contrast, for the image number 51, we get the following output at filter 2 an
 
 **The output at the fifth layer**: 
 
-These results are not understandable to out standard. We put them here for a simple demonstration. 
+These results are not understandable to our standard. We put them here for demonstration. 
 
 ![fig_6_fifth_layer](./imgs/fig_6_fifth_layer.png)
 
 **Side Note: RGB-ize convolutional output**
 
-We also implemented a method that could put some channels of the output together to form an RGB image. The resulting images have some brilliant artistic characteristics. A sample result is shown at the beginning of the document. 
+We also implemented a method that could put some channels of the output together to form an RGB image. The resulting images have some brilliant artisticity. A sample result is shown at the beginning of the document. 
 
 Another interesting result we get of this example image:
 
@@ -143,7 +143,7 @@ We do so by using an algorithm similar to deep dream, except we are starting fro
    
    ![](http://latex.codecogs.com/gif.latex?s=\sum_{i}|y_i|\\\\\frac{\partial%20s}{\partial%20y_i}=\text{sign}(y_i))
 
-The following experiments are based on this picture of our group member. Layer begin with index 1, channel begin with index 0. 
+The following experiments are based on this picture of a group member. Layer begin with index 1, channel begin with index 0. 
 
 <img src="./data/shijiajie1.jpg" alt="shijiajie1" style="zoom:33%;" />
 
@@ -187,11 +187,11 @@ There could be two possible explanations. One, the red/blue dot is a feature of 
 
 Activation at level 5 is hard to explain. The result is severely pixelized. We think this might be attribute the use of max_pooling layers, which results in the gradient to be only passed to some pixels. We suggest that if the network is trained using avg_pooling layers we could get better results.  
 
-#### What is Youth?
+#### Age Shifting
 
-At last, we want the network to answer the question, what is youth? Or how does the network defines if a face is young? 
+Using our result of a neural network classifying youth and a deep dream algorithm, what is it like to make someone look younger or older?
 
-To do so, we would do the deep dream algorithm from the classification result of the network, changing only the input based on the gradient from the losses. 
+We do the deep dream algorithm from the classification result of the network, changing only the input based on the gradient from the losses.
 
 First, we would make some young to become old (000178.jpg):
 
@@ -206,6 +206,21 @@ Then we would make some old to become young (000125.jpg):
 Actually, this is harder to explain. We think the random edges among the head is resembling hair of some kind. 
 
 ## Takeaways
+
+This project gave us hand-on experience with choosing and manipulating a dataset, training a neural network, toning the hyperpramaters, anaylize outcomes and the implementation of a deep dream algorithm.
+
+[And more detailed takeways on technical stuff maybe]
+
+Our group decided to do this program because we are interested in what is Youth and it seems asking neural network to classify Youth and then look at what it "thinks" can be an interesting conversation.
+
+Data is clearly a poor reflection of the truth but it reflects one way or another how our society has viewed what is Youth. Neural network is a great tool for feature extracting and by looking at the hidden layers of it we are able to see some "most efficient biases" for defining Youth in our society, which is interesting and has the potential to be useful beyond our prototyping attempt. Maybe this technique can be used more in social science domain.
+
+According to the observation of our neural network, we found features like lip color, baldness, make up(eye shadow), smoothness of skin... Some of them are closer to the biological truth like smoothness of skin and some of them are more socially constriucted like use of make up. 
+
+We are also surprised at how excited we felt looking at the thousands of photos the neural network and the deep dream made during project. It was from the joy of accomplishment, but also, it's also because some of the pictures we got are extremly artistic.(This is how we decide to make the RGB combiner). Feeding a neural network some data of a topic and then look at how it "look" at things is certainly a practice of high artistic quality. Maybe for understanding different interesting concepts and visualizing them, deep dream can be a good help for artists.
+
+
+Fun fact: we wanted to do this project on "beauty" but our neural network failed learn how to classfy it.
 
 
 
