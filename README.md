@@ -50,6 +50,7 @@ The accuracies of the training set and the test sets of the model are:
 }
 ```
 here is the graph of our training:
+
 ![test_result](./imgs/test_result.png)
 
 ## Visualization
