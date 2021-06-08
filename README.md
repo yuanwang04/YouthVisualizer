@@ -51,7 +51,7 @@ The accuracies of the training set and the test sets of the model are:
 ```
 here is the graph of our training:
 
-![test_result](./imgs/test_result.png)
+<img src="./imgs/test_result.png" alt="test_result" style="margin: 0 auto;" />
 
 ## Visualization
 
@@ -61,7 +61,7 @@ First, we want to visualize the convolutional layers by seeing what areas are ac
 
 The original image is image number 19 (000019.jpg) from the our data set:
 
-![fig_1_original](./imgs/fig_1_original.jpg)
+<img src="./imgs/fig_1_original.jpg" alt="fig_1_original" style="margin: 0 auto;" />
 
 **The output of the first layer:**
 
@@ -103,9 +103,9 @@ Output 2, 9 both have a significant focus on the hair and upper-head. This could
 
 By contrast, for the image number 51, we get the following output at filter 2 and 9. The output is somewhat reverted as compared to the output from this image, further suggesting the recognition of baldness/hairiness of a face. 
 
-![fig_8_bald](./imgs/fig_8_bald.jpg)
+<img src="./imgs/fig_8_bald.jpg" alt="fig_8_bald" style="zoom:80%; margin: 0 auto"  />
 
-![fig_7_bald_layer4](./imgs/fig_7_bald_layer4.png)
+<img src="./imgs/fig_7_bald_layer4.png" alt="fig_7_bald_layer4" style="margin: 0 auto;" />
 
 **The output at the fifth layer**: 
 
@@ -115,11 +115,11 @@ These results are not understandable to our standard. We put them here for demon
 
 **Side Note: RGB-ize convolutional output**
 
-We also implemented a method that could put some channels of the output together to form an RGB image. The resulting images have some brilliant artisticity. A sample result is shown at the beginning of the document. 
+We also implemented a method that could put some channels of the output together to form an RGB image. The resulting images have some brilliant artistic qualities. A sample result is shown at the beginning of the document. 
 
 Another interesting result we get of this example image:
 
-![fig_9_rgb](./imgs/fig_9_rgb.png)
+<img src="./imgs/fig_9_rgb.png" alt="fig_9_rgb" style="margin: 0 auto;" />
 
 The first rgb-ed image is using 3 channels (10, 14, 13) from the output of the first layer. We can see the red color on the edge of the face and the eyebrow, showing that the red channel is activated around these features. We can also see the blue channel across the edges of the photo, especially the hair. We can also see some green color around the hair as well, showing these filters are triggered by the features. 
 
@@ -145,7 +145,7 @@ We do so by using an algorithm similar to deep dream, except we are starting fro
 
 The following experiments are based on this picture of a group member. Layer begin with index 1, channel begin with index 0. 
 
-<img src="./data/shijiajie1.jpg" alt="shijiajie1" style="zoom:33%;" />
+<img src="./data/shijiajie1.jpg" alt="shijiajie1" style="zoom: 25%; margin: 0px auto;"/>
 
 Here are some interesting results:
 
@@ -153,7 +153,7 @@ Here are some interesting results:
 
 ![fig_10_1-11-face](./imgs/fig_10_1-11-face.png)
 
-<img src="./imgs/fig_10_1-11-activation.png" alt="fig_10_1-11-activation" style="zoom: 50%;" />
+<img src="./imgs/fig_10_1-11-activation.png" alt="fig_10_1-11-activation" style="zoom: 33%; margin: 0px auto;" />
 
 This is an interesting case, in which we can see the outline of the face being activated, but unable to see what the filter is recognizing from the input. We think that the filter is detecting face outlines by contrasting nose/lip/eyes to nearby skin colors. As the cheek changes blue, the filter is able to react stronger to the outlines of the face (red contrasts to blue), and resulted in the overall increase of activation. 
 
@@ -161,7 +161,7 @@ This is an interesting case, in which we can see the outline of the face being a
 
 ![fig_11_2-24-lip](./imgs/fig_11_2-24-lip.png)
 
-<img src="./imgs/fig_11_2-24-activation.png" alt="fig_10_2-24-activation" style="zoom:50%;" />
+<img src="./imgs/fig_11_2-24-activation.png" alt="fig_10_2-24-activation" style="zoom: 33%; margin: 0px auto;" />
 
 To activate this channel more, we can see that the input's lip becomes more red, indicating that the layer can be activated with red-lips. In the output, we can also see that the lip is contrasting stronger to the surrounding cheeks (cheeks whitened). The resulting image also has hair tainted blue and skin more light, probably suggesting some pattern in the hair/face color as well. 
 
@@ -169,7 +169,7 @@ To activate this channel more, we can see that the input's lip becomes more red,
 
 ![fig_12-3-50-eyeshadow](./imgs/fig_12-3-50-eyeshadow.png)
 
-<img src="./imgs/fig_12-3-50-activation.png" alt="fig_12-3-50-activation" style="zoom:50%;" />
+<img src="./imgs/fig_12-3-50-activation.png" alt="fig_12-3-50-activation" style="zoom: 33%; margin: 0px auto;" />
 
 In this image we can see that the activated channel has caused the image to have purple eyeshadows and purple lips. This is a good example of how we find some human-recognizable patterns from convolutional layers. This also shows what kind of patterns the filter is trying to recognize. 
 
@@ -177,7 +177,7 @@ In this image we can see that the activated channel has caused the image to have
 
 ![fig_13-4-44-spots](./imgs/fig_13-4-44-spots.png)
 
-<img src="./imgs/fig_13-4-44-activation.png" alt="fig_13-4-44-activation" style="zoom: 50%;" />
+<img src="./imgs/fig_13-4-44-activation.png" alt="fig_13-4-44-activation" style="zoom: 33%; margin: 0 auto;" />
 
 This is also an interesting case. The blue/red dots/lines generated by the channel certainly did not come from the original image. Therefore, activating this layer has revealed something that this layer remembers. That is, the layer can be activated if there are horizontal wrinkles or dots on the input. This is something the layer has learned from the training set, including the positions of the dots and the directions of the lines. 
 
@@ -207,9 +207,9 @@ Actually, this is harder to explain. We think the random edges among the head is
 
 ## Takeaways
 
-This project gave us hand-on experience with choosing and manipulating a dataset, training a neural network, toning the hyperpramaters, anaylize outcomes and the implementation of a deep dream algorithm.
+This project gave us hand-on experience with choosing and manipulating a dataset, training a neural network, tuning the hyperparameters, analyize outcomes and the implementation of a deep dream algorithm.
 
-[And more detailed takeways on technical stuff maybe]
+[And more detailed takeaways on technical stuff maybe]
 
 Our group decided to do this program because we are interested in what is Youth and it seems asking neural network to classify Youth and then look at what it "thinks" can be an interesting conversation.
 
@@ -217,10 +217,10 @@ Data is clearly a poor reflection of the truth but it reflects one way or anothe
 
 According to the observation of our neural network, we found features like lip color, baldness, make up(eye shadow), smoothness of skin... Some of them are closer to the biological truth like smoothness of skin and some of them are more socially constructed like use of make up. 
 
-We are also surprised at how excited we felt looking at the thousands of photos the neural network and the deep dream made during project. It was from the joy of accomplishment, but it's also because some of the pictures we got are extremly artistic.(This is how we decide to make the RGB combiner). Feeding a neural network some data of a topic and then look at how it "look" at things is certainly a practice of high artistic quality. Maybe for understanding different interesting concepts and visualizing them, deep dream can be a good help for artists.
+We are also surprised at how excited we felt looking at the thousands of photos the neural network and the deep dream made during project. It was from the joy of accomplishment, but it's also because some of the pictures we got are extremely artistic.(This is how we decide to make the RGB combiner). Feeding a neural network some data of a topic and then look at how it "look" at things is certainly a practice of high artistic quality. Maybe for understanding different interesting concepts and visualizing them, deep dream can be a good help for artists.
 
 
-Fun fact: we wanted to do this project on "beauty" but our neural network failed learn how to classfy it.
+Fun fact: we wanted to do this project on "beauty" but our neural network failed learn how to classify it.
 
 
 
