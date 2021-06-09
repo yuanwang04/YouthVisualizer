@@ -5,7 +5,7 @@ Yuan Wang & Jiajie Shi, 2021-6
 ![fig_0](./imgs/fig_0.png)
 
 ## Abstract
-
+This project looks at different channals of a neural network trained on classifying youth. We want to get some insight on what kinds of feature extractions the hidden layers of the neural network forms for such task. We want to find some artisticty in these hidden layers trying to define youth. We want to get some insight on what these features learned by the network says about our social standard on youth. We used darknet and the training code from the cse455 class provided code. We used celebA as our dataset which contains faces of celebrities with labels of 40 different attributes one of such is young or not. The main techniques we used and implemented are RBG picture making for making cool arts from the network and deep dream which we use to have a clearer look at what features a specific convolutional layer is focusing on.
 
 
 ## Running
