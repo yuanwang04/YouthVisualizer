@@ -32,9 +32,8 @@ Training statistics:
 
 ```
 {
-	'epoch':
-	'schedule':
-	'learning_rate': 0.01, 
+	'epoch': 15
+	'schedule': {0: 0.1, 5: 0.01, 10:0.001}
 	'momentum': 0.9, 
 	'decay': 0.0005
 	'batch_size': 128
