@@ -5,7 +5,11 @@ Yuan Wang & Jiajie Shi, 2021-6
 ![fig_0](./imgs/fig_0.png)
 
 ## Abstract
-This project looks at different channals of a neural network trained on classifying youth. We want to get some insight on what kinds of feature extractions the hidden layers of the neural network forms for such task. We want to find some artisticty in these hidden layers trying to define youth. We want to get some insight on what these features learned by the network says about our social standard on youth. We used darknet and the training code from the cse455 class provided code. We used celebA as our dataset which contains faces of celebrities with labels of 40 different attributes one of such is young or not. The main techniques we used and implemented are RBG picture making for making cool arts from the network and deep dream which we use to have a clearer look at what features a specific convolutional layer is focusing on.
+This project visualizes different channels of a neural network trained to classify young/old faces. We want to get some insight on what kinds of feature extractions the hidden layers of the neural network forms for such task. We want to find some artistic qualities in these hidden layers trying to define youth. We want to learn what features are extracted by the network that are related to our social standard on youth. 
+
+We used Darknet and the training code from the cse455 courses, and CelebA as our dataset which contains faces of celebrities with labels of 40 different attributes one of such is young or not. The main techniques we implemented are visualizing activated areas, making RBG picture from the activated areas, and deep dreaming to see what features a specific convolutional layer/channel has remembered.
+
+Video Intro: https://youtu.be/NjiGkuB3CIk
 
 
 ## Running
@@ -206,9 +210,9 @@ Actually, this is harder to explain. We think the random edges among the head is
 
 ## Takeaways
 
-This project gave us hand-on experience with choosing and manipulating a dataset, training a neural network, tuning the hyperparameters, analyize outcomes and the implementation of a deep dream algorithm.
+This project gave us hand-on experience with choosing and manipulating a dataset, training a neural network, tuning the hyperparameters, analyzing outcomes and implementing a deep dream algorithm.
 
-[And more detailed takeaways on technical stuff maybe]
+One technical takeaway we learned is how the activation/evaluation/pooling could affect our results. We get a better training statistics when we use max pooling layers. However, this layer also resulted in making the result of deep dream very pixelized. We also designed 3 different functions to evaluate the "activation" of a channel. Each of the activation evaluation technique actually gives us different results, suggesting the necessity of more trials. We think the activation layers have a similar characteristic. 
 
 Our group decided to do this program because we are interested in what is Youth and it seems asking neural network to classify Youth and then look at what it "thinks" can be an interesting conversation.
 
